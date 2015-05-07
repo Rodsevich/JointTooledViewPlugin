@@ -1,5 +1,5 @@
 var graph = new joint.dia.Graph;
-var paper = new joint.dia.Paper({ el: $('#papel'), width: 1250, height: 500, gridSize: 1, model: graph });
+var paper = new joint.dia.Paper({ el: $('#papel'), width: 550, height: 550, gridSize: 1, model: graph });
 
 //Include the Interface
 var style = {
@@ -32,16 +32,16 @@ var m1 = new joint.shapes.devs.Model(joint.util.deepSupplement({
         '.label': { text: "\tNormal\nModel"}
     }
 }, style));
+m1.translate(300, 0);
 
 var m2 = new joint.shapes.devs.TooledModel(joint.util.deepSupplement({
     attrs: {
         '.body': { magnet: true },
-        '.label': { text: "Can't you\nmove me?\n(If this text is too large, enlarge the figure to read it well ;-) )"}
+        '.label': { fill:'white', text: "Can't you\nmove me?\n(If this text is too large, enlarge the figure to read it well ;-) )"}
     },
     portsTool: false,
     moveTool: false
 }, style));
-m2.translate(300, 0);
 
 var m3 = new joint.shapes.devs.TooledModel(joint.util.deepSupplement({
     attrs: {

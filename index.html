@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.5/styles/monokai_sublime.min.css">
+    <script src="//cdn.jsdelivr.net/highlight.js/8.5/highlight.min.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -42,37 +44,54 @@
         <h2>
 <a id="example-on-using-tooledview-plugin-for-jointjs" class="anchor" href="#example-on-using-tooledview-plugin-for-jointjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example on using TooledView plugin for <a href="http://www.jointjs.com">JointJS</a>
 </h2>
+<ol>
+<li>Add <strong>tooledViewPlugin.js</strong>'s code to your code</li>
 
-<p>1.Add <strong>tooledViewPlugin.js</strong>'s code to your code</p>
+<li>Extend your Element's constructor with the interface in this way:</li>
 
-<p>2.Extend your Element's constructor with the interface in this way:</p>
-
-<p><code>joint.shapes.devs.TooledModel = joint.shapes.devs.Model.extend(_.extend({}, joint.plugins.TooledModelInterface, {
+<p>
+<pre><code class="js">
+joint.shapes.devs.TooledModel = joint.shapes.devs.Model.extend( _.extend({}, joint.plugins.TooledModelInterface, {
+   
     markup: '&lt;g class="rotatable"&gt;&lt;g class="scalable"&gt;&lt;rect class="body"/&gt;&lt;/g&gt;&lt;text class="label"/&gt;&lt;g class="inPorts"/&gt;&lt;g class="outPorts"/&gt;&lt;g class="moveTool"/&gt;&lt;g class="resizeTool"/&gt;&lt;g class="portsTool"/&gt;&lt;/g&gt;',
+    //&lt;g class="moveTool"/&gt;&lt;g class="resizeTool"/&gt;&lt;g class="portsTool"/&gt; to be used as needed
     defaults: joint.util.deepSupplement({
         type: 'devs.TooledModel',
-    }, joint.shapes.devs.Model.prototype.defaults),
-}));</code></p>
+    }, joint.shapes.devs.Model.prototype.defaults)
+    
+}));
+</code></pre>
 
-<p>3.Extend that element's View with this plugin's view <em>joint.plugins.TooledViewInterface</em></p>
 
-<p><code>joint.shapes.devs.TooledModelView = joint.shapes.devs.ModelView.extend(joint.plugins.TooledViewInterface);</code></p>
+<li>Extend that element's View with this plugin's view <em>joint.plugins.TooledViewInterface</em></li>
 
-<p>4.Make the new element</p>
+<p><pre><code class="javascript">
+joint.shapes.devs.TooledModelView = joint.shapes.devs.ModelView.extend(
+                                                                            joint.plugins.TooledViewInterface,
+                                                                            //possibly other interfaces
+);
+</code></pre></p>
 
-<p><code>var elem = new joint.shapes.devs.TooledModel({
+<li>Make the new element</li>
+
+<p><pre><code class="javascript">
+var elem = new joint.shapes.devs.TooledModel({
     attrs: {
         '.label': { text: "I'm overriding the label's name"}
     },
     portsTool: false, //Deactivate some of the tools if you want
-});</code></p>
+});
+</code></pre></p>
 
-<p>5.Add the element to the paper</p>
+<li>Add the element to the paper</li>
 
-<p><code>graph.addCell(elem)</code></p>
-
+    <p><pre><code class="javascript">graph.addCell(elem);</code></pre></p>
+</ol>
 <h3>
 <a id="done-d" class="anchor" href="#done-d" aria-hidden="true"><span class="octicon octicon-link"></span></a>Done! :D</h3>
+<div id="contenedor-iframe">
+    <iframe width="580" height="580" alignment="middle" src="el_iframe/index.html"></iframe>
+</div>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/Rodsevich">Rodsevich</a></p>
@@ -90,6 +109,7 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
+   
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
