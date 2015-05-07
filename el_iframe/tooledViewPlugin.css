@@ -1,0 +1,22 @@
+svg .viewport .element .portsTool,
+svg .viewport .element .moveTool,
+svg .viewport .element .resizeTool{
+    opacity: 0.03;
+    transition: opacity 1.4s;
+}
+svg .viewport .element .portsTool{
+    cursor: pointer;
+}
+svg .viewport .element .resizeTool{
+    cursor: se-resize;
+}
+svg .viewport .element .moveTool{
+    cursor: move;
+}
+
+svg .viewport .element:hover .portsTool,
+svg .viewport .element:hover .moveTool,
+svg .viewport .element:hover .resizeTool{
+    transition: opacity 0.3s;
+    opacity: 1;
+}
