@@ -1,0 +1,22 @@
+{
+  "name": "JointTooledViewPlugin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Rodsevich/JointTooledViewPlugin",
+  "authors": [
+    "Rodsevich <neton_12@hotmail.com>"
+  ],
+  "description": "This plugin provides visual tools to your JointJS's elements",
+  "main": "[tooledViewPlugin.js, tooledViewPlugin.css]",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Joint",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "README.md"
+  ]
+}
