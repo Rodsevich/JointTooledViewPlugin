@@ -6,7 +6,10 @@
     "Rodsevich <neton_12@hotmail.com>"
   ],
   "description": "This plugin provides visual tools to your JointJS's elements",
-  "main": "[tooledViewPlugin.js, tooledViewPlugin.css]",
+  "main": [
+    "tooledViewPlugin.js",
+    "tooledViewPlugin.css"
+  ],
   "moduleType": [
     "globals"
   ],
