@@ -86,8 +86,12 @@ joint.plugins.TooledViewInterface = {
     interface: 'Tools',
     renderMoveTool: function () {
         var moveContainer = this.$('.moveTool').empty();
-        for(var elem of V(this.model.moveToolMarkup))
-            moveContainer.append(elem.node);
+//        for(var elem of V(this.model.moveToolMarkup))
+//            moveContainer.append(elem.node);
+//        As ↑this↑ code is not ES5 valid, I remake it ES5-valid in order to have ng-annotate working
+        var markup = V(this.model.moveToolMarkup);
+        for(var id in markup)
+            moveContainer.append(markup[id].node);
     },
     renderPortsTool: function (config) {
         //Add the Nodes
